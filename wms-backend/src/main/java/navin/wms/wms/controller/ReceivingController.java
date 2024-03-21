@@ -21,6 +21,7 @@ public class ReceivingController {
 
 
     //Build Add Receiving REST API
+
     @PostMapping
    public ResponseEntity<ReceivingDto> createReceiving (@RequestBody ReceivingDto receivingDto){
         LocalDateTime received_date = LocalDateTime.now();
@@ -34,13 +35,16 @@ public class ReceivingController {
     }
 
 
-    //Build Get Receving by id REST API
+    //Build Get Receiving by id REST API
+
     @GetMapping("{id}")
     public ResponseEntity<ReceivingDto> getReceivingByID(@PathVariable("id") Integer receivingID){
         ReceivingDto receivingDto = receivingService.getReceivingById(receivingID);
         return ResponseEntity.ok(receivingDto);
 
     }
+
+    //Build Get All Receiving REST API
 
     @GetMapping
     public ResponseEntity<List<ReceivingDto>> getAllReceiving(){

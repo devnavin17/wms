@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/location_master")
@@ -17,6 +18,7 @@ public class LocationMasterController {
     private LocationMasterService locationMasterService;
 
     //Build API LocationMaster REST API
+
     @PostMapping
     public ResponseEntity<LocationMasterDto> createLocationMaster(@RequestBody LocationMasterDto locationMasterDto){
         LocationMasterDto savedLocationMaster = locationMasterService.createLocationMaster(locationMasterDto);
@@ -24,6 +26,7 @@ public class LocationMasterController {
     }
 
     //Build Get LocationMaster REST API
+
     @GetMapping("{id}")
     public ResponseEntity<LocationMasterDto> getLocationMasterById(@PathVariable("id") Integer locationMasterId){
         LocationMasterDto locationMasterDto = locationMasterService.getLocationMasterById(locationMasterId);
@@ -31,6 +34,7 @@ public class LocationMasterController {
     }
 
     // Build Get All LocationMaster REST API
+
     @GetMapping
     public ResponseEntity<List<LocationMasterDto>> getAllLocationMasterById(){
         List<LocationMasterDto> locationMasters = locationMasterService.getAllLocationMaster();
@@ -38,12 +42,15 @@ public class LocationMasterController {
     }
 
     //Build Update LocationMaster REST API
+
     @PutMapping("{id}")
     public ResponseEntity<LocationMasterDto> updateLocationMaster (@PathVariable("id") Integer locationMasterId,@RequestBody LocationMasterDto updatedLocationMasterDto){
         LocationMasterDto locationMasterDto = locationMasterService.updateLocationMaster(locationMasterId, updatedLocationMasterDto);
         return ResponseEntity.ok(locationMasterDto);
     }
 
+
+    //Build Delete LocationMaster REST API
 
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteLocationMaster (@PathVariable("id") Integer locationMasterId){

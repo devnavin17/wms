@@ -1,8 +1,6 @@
 package navin.wms.wms.mapper;
 
-import navin.wms.wms.dto.ItemMasterDto;
 import navin.wms.wms.dto.ReceivingDto;
-import navin.wms.wms.entity.ItemMaster;
 import navin.wms.wms.entity.Receiving;
 
 public class ReceivingMapper {
@@ -13,7 +11,8 @@ public class ReceivingMapper {
                 receiving.getSku(),
                 receiving.getQty_received(),
                 receiving.getExpiry_date(),
-                receiving.getReceived_time()
+                receiving.getReceived_time(),
+                receiving.getStatus()
         );
     }
 
@@ -23,7 +22,8 @@ public class ReceivingMapper {
                 receivingDto.getSku(),
                 receivingDto.getQty_received(),
                 receivingDto.getExpiry_date(),
-                receivingDto.getReceived_time()
+                receivingDto.getReceived_time(),
+                receivingDto.getStatus()
         );
     }
 }
