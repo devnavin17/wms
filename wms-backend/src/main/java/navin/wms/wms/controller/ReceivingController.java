@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,7 +19,6 @@ import java.util.List;
 public class ReceivingController {
 
     private ReceivingService receivingService;
-
 
     //Build Add Receiving REST API
 
@@ -50,5 +50,27 @@ public class ReceivingController {
     public ResponseEntity<List<ReceivingDto>> getAllReceiving(){
         List<ReceivingDto> receivings = receivingService.getAllReceiving();
         return ResponseEntity.ok(receivings);
+    }
+
+
+    //Build Update Receiving REST API
+
+    @PutMapping("{id}")
+    public ResponseEntity<ReceivingDto> updateReceiving (@PathVariable("id") Integer receivingId, @RequestBody ReceivingDto updatedReceiving){
+
+        ResponseEntity<ReceivingDto> dbval = getReceivingByID(receivingId);
+
+        updatedReceiving.setStatus(1);
+
+        updatedReceiving.setReceived_time(dbval.getBody().getReceived_time());
+
+        updatedReceiving.setSku(dbval.getBody().getSku());
+
+        updatedReceiving.setQty_received(dbval.getBody().getQty_received());
+
+        updatedReceiving.setExpiry_date(dbval.getBody().getExpiry_date());
+
+        ReceivingDto receivingDto = receivingService.updateReceiving(receivingId, updatedReceiving);
+        return ResponseEntity.ok(receivingDto);
     }
 }

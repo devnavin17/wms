@@ -42,4 +42,23 @@ public class ReceivingServiceImpl implements ReceivingService {
         return receivings.stream().map((receiving -> ReceivingMapper.mapToReceivingDto(receiving)))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public ReceivingDto updateReceiving(Integer receivingId, ReceivingDto updatedReceiving) {
+
+        Receiving receiving = receivingRepository.findById(receivingId).orElseThrow(
+                () -> new ResourceNotFoundException("Item does not exist with given id"+receivingId)
+        );
+
+        //receiving.setId(updatedReceiving.getId()); no need to send the ID, we are sending via PutMapping URL
+        receiving.setSku(updatedReceiving.getSku());
+        receiving.setQty_received(updatedReceiving.getQty_received());
+        receiving.setExpiry_date(updatedReceiving.getExpiry_date());
+        receiving.setReceived_time(updatedReceiving.getReceived_time());
+        receiving.setStatus(updatedReceiving.getStatus());
+
+        Receiving updatedReceivingObj = receivingRepository.save(receiving);
+
+        return ReceivingMapper.mapToReceivingDto(updatedReceivingObj);
+    }
 }

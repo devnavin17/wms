@@ -9,10 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemMasterDto {
+public class ItemStorageDto {
     private int id;
     private int sku;
-    private String attribute1;
-    private String attribute2;
-
+    private int qty;
+    private String storage_id;
 }
