@@ -1,4 +1,5 @@
 import axios from "axios";
+import http from "../utilities/http";
 
 const REST_API_BASE_URL = 'http://localhost:8080/api/item_master';
 
@@ -11,6 +12,8 @@ export const listItemMaster = () => axios.get(REST_API_BASE_URL);
 export const createItem = (itemMaster) => axios.post(REST_API_BASE_URL, itemMaster);
 
 export const getItemMaster = (itemId) => axios.get(REST_API_BASE_URL + '/' + itemId);
+
+// export const getItemMaster = (itemId) => http.get(`item_master/${itemId}`);
 
 export const updateItemMaster = (itemId, itemMaster) => axios.put(REST_API_BASE_URL + '/' + itemId, itemMaster);
 

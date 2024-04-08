@@ -54,7 +54,7 @@ const ListItemMasterComponent = () => {
                     <th>Item ID</th>
                     <th>Sku</th>
                     <th>Attribute 1</th>
-                    <th>Attribute 1</th>
+                    <th>Attribute 2</th>
                     <th>Actions</th>
                 </tr>
             </thead>

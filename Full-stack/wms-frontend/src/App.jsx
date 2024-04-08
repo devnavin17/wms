@@ -10,6 +10,9 @@ import ReceivingComponent from './components/ReceivingComponent'
 import ListLocationMasterComponent from './components/ListLocationMasterComponent'
 import LocationMasterComponent from './components/LocationMasterComponent'
 import ReceivingPageComponent from './components/ReceivingPageComponent'
+import ReceivingStorageComponent from './components/ReceivingStorageComponent'
+import ListItemStorageComponent from './components/ListItemStorageComponent'
+import ItemStoragePageComponent from './components/ItemStoragePageComponent'
 
 function App() {
 
@@ -38,6 +41,12 @@ function App() {
               <Route path='/add_location' element = { <LocationMasterComponent />}></Route>
               {/* // http://localhost:3000/update_location/1 */}
               <Route path='/update_location/:id' element = { <LocationMasterComponent />}></Route>
+              {/* // http://localhost:3000/item_storage_page */}
+              <Route path='item_storage_page' element = { <ItemStoragePageComponent />}></Route>              
+              {/* // http://localhost:3000/receiving_storage */}
+              <Route path='/receiving_storage' element={ <ReceivingStorageComponent />}></Route>
+              {/* // http://localhost:3000/item_storage */}
+              <Route path='/item_storage' element={ <ListItemStorageComponent />}></Route>
           </Routes>
         <FooterComponent />
       </BrowserRouter>

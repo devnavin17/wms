@@ -124,7 +124,7 @@ const ItemMasterComponent = () => {
                                 value={sku}
                                 className={`form-control ${ errors.sku ? 'is-invalid': '' }`}
                                 onChange={(e) => setSku(e.target.value)} //you paste the arrow head function directlty on the onChange event handler, you can delete the top fucntion, I did not delete for reference purposes.
-                                readOnly
+                                // readOnly
                             >
                             </input>
                             { errors.sku && <div className='invalid-feedback'> { errors.sku} </div> }

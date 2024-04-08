@@ -14,7 +14,11 @@ const MainPageComponent = () =>{
     }
 
     function receivingPage(){
-      navigator('receiving_page')
+      navigator('/receiving_page')
+    }
+
+    function itemStoragePage (){
+      navigator ('/item_storage_page')
     }
 
 
@@ -27,6 +31,7 @@ const MainPageComponent = () =>{
         {/* <a href="google.com">item</a> */}
         <h2 onClick={receivingPage} style={{ cursor: 'pointer' }}>Receiving</h2>
         <h2 onClick={listLocationMaster} style={{ cursor: 'pointer' }}>Location Master</h2>
+        <h2 onClick={itemStoragePage} style={{ cursor: 'pointer' }}>Storage</h2>
     </div>
     </div>
   )

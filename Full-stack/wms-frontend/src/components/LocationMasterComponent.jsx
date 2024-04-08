@@ -136,9 +136,9 @@ const LocationMasterComponent = () => {
                                 >
                                 </input>
                             </div>
-                            <button className='btn btn-success' onClick={saveOrUpdateLocationMaster}>Submit</button>
+                            <button className='btn btn-success' onClick={updateLocationMaster}>Submit</button>
                         </form>
-                </div>
+                </div>z
             </div>
         </div>
     </div>
